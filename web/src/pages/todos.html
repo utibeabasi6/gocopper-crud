@@ -1,0 +1,16 @@
+{{ define "content"}}
+<h1>Hi there</h1>
+<h2>Here are the todos</h2>
+{{ range . }}
+<form action="/{{.Name}}" method="post">
+    <input type="text" name="todo" value="{{.Name}}">
+    <button type="submit">Update todo</button>
+    <button type="button" onclick = "deleteTodo('{{.Name}}')" >Delete {{.Name}}</button>
+</form>
+
+{{ end }}
+<form action="/todos" method="post">
+    <input type="text" name="todo">
+    <button type="submit">Add Todo</button>
+</form>
+{{ end }}
